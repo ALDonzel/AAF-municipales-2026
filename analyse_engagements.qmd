@@ -42,7 +42,9 @@ data <- read.csv2(file = "engagement_final.csv", sep = ",")
 
 ## Dates d'engagement
 
-L'appel a eu lieu entre le mois de février et mars 2026.
+L'appel a eu lieu entre le mois de février et mars 2026[^1].
+
+[^1]: [Fichier consolidé des données utilisé](https://github.com/ALDonzel/AAF-municipales-2026/blob/main/engagement_final.csv).
 
 ```{r}
 date <- data %>% 
@@ -99,9 +101,9 @@ ggplot(pos, aes(x= Tête.de.liste, y=n, fill=Tête.de.liste)) +
 
 ## Les nuances de liste
 
-La liste des nuances est celle présente au sein des données du Ministère de l'Intérieur[^1].
+La liste des nuances est celle présente au sein des données du Ministère de l'Intérieur[^2].
 
-[^1]: Jointure avec le jeu de données [Elections municipales 2026 - Listes candidates au premier tour](https://static.data.gouv.fr/resources/elections-municipales-2026-listes-candidates-au-premier-tour/20260313-152615/municipales-2026-candidatures-france-entiere-tour-1-2026-03-13.csv) du Ministère de l'Intérieur.
+[^2]: Jointure avec le jeu de données [Elections municipales 2026 - Listes candidates au premier tour](https://static.data.gouv.fr/resources/elections-municipales-2026-listes-candidates-au-premier-tour/20260313-152615/municipales-2026-candidatures-france-entiere-tour-1-2026-03-13.csv) du Ministère de l'Intérieur.
 
 ```{r, echo=FALSE}
 nuance <- data %>% 
@@ -120,9 +122,9 @@ ggplot(nuance, aes(x=reorder(Nuance.de.liste, n), y=n)) +
 
 ## Les personnes engagées ont-elles été élues ?
 
-A l'issu des deux tours, les personnes engagées ont-elles été élues[^2] ?
+La liste des personnes élues est réalisée à partir des données des deux tours[^3]. Ici, la notion de "personnes élues" désigne toutes celles et ceux qui, à l'issu des deux tours, siègent au conseil municipal. Ces personnes peuvent donc être élues de la liste arrivée en tête ou des listes d'opposition.
 
-[^2]: Jointure réalisée avec les données des résultats publiées par le Ministère de l'Intérieur du [premier](https://static.data.gouv.fr/resources/elections-municipales-2026-resultats-du-premier-tour/20260320-164100/municipales-2026-candidats-elus-france-entiere-tour-1-2026-03-20.csv) et du [second](https://static.data.gouv.fr/resources/elections-municipales-2026-resultats-du-scond-tour/20260323-180122/municipales-2026-candidats-elus-france-entiere-tour-2-2026-03-23.csv) tour.
+[^3]: Jointure réalisée avec les données des résultats publiées par le Ministère de l'Intérieur du [premier](https://static.data.gouv.fr/resources/elections-municipales-2026-resultats-du-premier-tour/20260320-164100/municipales-2026-candidats-elus-france-entiere-tour-1-2026-03-20.csv) et du [second](https://static.data.gouv.fr/resources/elections-municipales-2026-resultats-du-scond-tour/20260323-180122/municipales-2026-candidats-elus-france-entiere-tour-2-2026-03-23.csv) tour.
 
 ```{r, echo=FALSE}
 elu <- data %>% 
